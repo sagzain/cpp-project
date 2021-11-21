@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "844c3d03-efc3-445b-9dee-66f11c9980d8": {
+      "ProjectGuid": "844c3d03-efc3-445b-9dee-66f11c9980d8",
+      "DisplayName": "Battle Royale",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

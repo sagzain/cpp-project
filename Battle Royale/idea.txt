@@ -1,0 +1,66 @@
+Videojuego battle royale
+
+Requisitos mínimos:
+- Seleccionar número de jugadores
+- Elegir personajes
+- Seleccionar una herramienta para la lucha
+- Clase partida para inicializarlo todo y simular la batalla
+- Debe haber un ganador final y una recompensa
+
+Criterios de evaluacion:
+  1: 
+    - Jerarquía de herencia que modele los distintos personajes
+    - Jerarquía de herencia que modele las distintas herramientas
+    - Atributos para personajes y herramientas
+  2:
+    -  Crear Clase partida para simular las batallas
+  3:
+    - Menu sencillo para interactuar con la aplicación
+  4:
+    - Registro de los personajes que hay en el mapa
+  5:
+    - Mejoras adicionales (complicaciones)
+  6:
+    - Estilo de código (comentarios, identación...)
+
+Condiciones:
+  - Proyecto individual
+  - Entrega en .zip -> Nombre_Apellido_Cpp.zip
+  - Memoria explicativa del juego, jerarquia de clases, herramientas usadas (5 págs)
+  - Entrega en Blackboard
+  - Defensa oral fecha tope 16 de Diciembre 2021
+
+Notas:
+Si el juego es por equipo, estaría bien que cada personaje supiera cuantos hay de su equipo vivos
+Si el juego es individual, el personaje debe saber cuantos quedan en el mapa
+
+Ideas adicionales:
+- Crear clases de personajes con diferentes habilidades pasivas o atributos especiales
+- Posibilidad de encontrar en el mapa herramientas aleatorias adicionales
+- Curaciones por el mapa
+- Crear una matriz como si fuera un tablero para mover a los personajes
+- Permitir a un jugador lootear* a otro si lo mata
+    * Coger y equipar un objeto si es mejor que lo que lleva
+- Randomizar la aparicion de los personajes en una matriz
+- Randomizar la aparición de objetos en el mapa (estilo armaduras*, pociones* etc)
+    * Si hago armaduras puede poner un valor de defensa y un número de usos para que reduzca el daño de manera automática X veces antes de romperse
+    * Una poción te cura un % de vida al encontrarla en una casilla
+- Valorar la posibilidad de crear armas a distancia*
+    * Un personaje con un arma a distancia podría observar las casillas adyacentes en la fase de movimiento y atacar
+  
+  Interfaz de Usuario:
+  - Generar un tablero 3D 
+  - Generar elementos 3D para los personajes
+  - Visualizar el movimiento en las casillas
+  - Visualizar con texto el combate entre dos personajes
+  - Posibilidad de seleccionar un personaje para ver sus atributos y herramientas
+  - Mostrar la cantidad de jugadores vivos (y cuales están vivos)
+
+ -----------------------------------------------------------------------------
+ La idea para la parte gráfica es tener un viewport donde se muestre la escena en 3D
+ Otro panel donde se muestren los jugadores vivos
+ Otro panel de texto para simular las batallas
+ Otro panel de información del personaje
+
+
+ SI NO SE DESARROLLA PARA LA ENTREGA DENTRO DE UN MES, DESARROLLAR MÁS EN ADELANTE (INCLUSO EN UNITY)
