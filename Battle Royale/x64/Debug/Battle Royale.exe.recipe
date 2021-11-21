@@ -5,7 +5,11 @@
       <FullPath>D:\GitHub\cpp-project\Battle Royale\x64\Debug\Battle Royale.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>D:\GitHub\cpp-project\Battle Royale\Player.h</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>

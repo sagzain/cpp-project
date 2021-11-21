@@ -9,10 +9,43 @@
 //   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
 
 
-#include <iostream>
+#include <iostream> 
+#include "Battle.h"
+
+using namespace std;
+
+void EnterPlayers(int n_players, Player* players)
+{
+    for (int i = 0; i < n_players; i++)
+    {
+        string name;
+        cout << "Introduce el nombre para el jugador " << i << ":\n";
+        cin >> name;
+        players[i].SetName(name);
+    }
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int n_players;
+
+    cout << "Introduce el numero de jugadores:\n";
+    cin >> n_players;
+
+    Player* players = new Player[n_players];
+
+    EnterPlayers(n_players, players);
+
+    Battle battle;
+    Player winner = battle.Fight(&players[0], &players[1]);
+
+    cout << winner.GetName() << " won the encounter.\n";
+
+    cout << "Siguen vivos:\n";
+
+    for (int i = 0; i < n_players; i++)
+    {
+        cout << players[i].GetName() << endl;
+    }
 }
 
