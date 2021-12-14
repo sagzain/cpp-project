@@ -33,3 +33,8 @@ void Player::TakeDamage(int damage)
 	cout << endl << name << "takes " << damage << "damage." << endl;
 	cout << health << " left." << endl;
 }
+
+void Player::SetPosition(Position position)
+{
+	this->position = position;
+}

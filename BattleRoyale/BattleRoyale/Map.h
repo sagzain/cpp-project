@@ -1,14 +1,10 @@
 #pragma once
 #include "Player.h"
+#include "Position.h"
 
 struct Size
 {
 	int N, M;
-};
-
-struct Position
-{
-	int x, y;
 };
 
 class Map
@@ -23,6 +19,6 @@ public:
 	void SetPlayerAtPosition(Player, Position);
 	Player GetPlayerAtPosition(Position);
 	Position GeneratePosition();
-	//bool IsPositionOccupied();
+	bool IsPositionOccupied();
 };
 

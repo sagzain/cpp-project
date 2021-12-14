@@ -45,9 +45,9 @@ Size MapSelector()
         sleep_for(milliseconds(60));
         cout << "1 - Small (3x3)" << endl;
         sleep_for(milliseconds(40));
-        cout << "2 - Normal (4x4)" << endl;
+        cout << "2 - Normal (6x6)" << endl;
         sleep_for(milliseconds(40));
-        cout << "3 - Large (5x5)" << endl;
+        cout << "3 - Large (10x10)" << endl;
         sleep_for(milliseconds(40));
 
         int selection;
@@ -60,10 +60,10 @@ Size MapSelector()
             size = { 3,3 };
             break;
         case 2:
-            size = { 4,4 };
+            size = { 6,6 };
             break;
         case 3:
-            size = { 5, 5 };
+            size = { 10, 10 };
             break;
         default:
             cout << "Selection error. Try again." << endl;
@@ -108,16 +108,23 @@ bool PlayAgain()
 
 void PlayGame()
 {
-    WelcomeMessage();
-
     Size size = MapSelector();
 
     Map map = Map(size);
 
     Weapon weapon;
-    Player player = Player("Samuel", weapon);
+    Player player1 = Player("Samuel", weapon);
+    Player player2 = Player("Adrian", weapon);
+    Player player3 = Player("Miguel", weapon);
+    Player player4 = Player("AnuelB", weapon);
+    Player player5 = Player("Manuel", weapon);
 
-    map.SetPlayerAtPosition(player, Position{ 1,1 });
+    map.SetPlayerAtPosition(player1, map.GeneratePosition());
+    map.SetPlayerAtPosition(player2, map.GeneratePosition());
+    map.SetPlayerAtPosition(player3, map.GeneratePosition());
+    map.SetPlayerAtPosition(player4, map.GeneratePosition());
+    map.SetPlayerAtPosition(player5, map.GeneratePosition());
+
     map.PrintBattleground();
 }
 
@@ -125,6 +132,8 @@ void InitMainMenu()
 {
     bool repeat;
 
+    WelcomeMessage();
+    
     do
     {
         PlayGame();
