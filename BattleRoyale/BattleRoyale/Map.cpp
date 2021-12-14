@@ -1,11 +1,19 @@
 #include "Map.h"
 
-Map::Map()
+
+Map::Map(Size size)
 {
+	map = new Player*[size.M];
+	for (int i = 0; i < size.M; i++)
+	{
+		map[i] = new Player[size.N];
+	}
+
 	totalPlayers = 0;
+	this->size = size;
 }
 
-void Map::PrintMap()
+void Map::PrintBattleground()
 {
 	for (int i = 0; i < size.M; i++)
 	{
@@ -19,14 +27,14 @@ void Map::PrintMap()
 	}
 }
 
-void Map::SetPlayerAtPosition(Player* player, Position newPosition)
+void Map::SetPlayerAtPosition(Player player, Position position)
 {
-	map[newPosition.x, newPosition.y] = player;
+	map[position.x][position.y] = player;
 }
 
-Player* Map::GetPlayerAtPosition(Position position)
+Player Map::GetPlayerAtPosition(Position position)
 {
-	return map[position.x, position.y];
+	return map[position.x][position.y];
 }
 
 Position Map::GeneratePosition()

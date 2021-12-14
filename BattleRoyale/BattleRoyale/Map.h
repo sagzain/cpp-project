@@ -14,14 +14,14 @@ struct Position
 class Map
 {
 private:
-	Player** map;
+	Player ** map;
 	Size size;
 	int totalPlayers;
 public:
 	Map(Size);
-	void PrintMap();
-	void SetPlayerAtPosition(Player*, Position);
-	Player* GetPlayerAtPosition(Position);
+	void PrintBattleground();
+	void SetPlayerAtPosition(Player, Position);
+	Player GetPlayerAtPosition(Position);
 	Position GeneratePosition();
 	//bool IsPositionOccupied();
 };
