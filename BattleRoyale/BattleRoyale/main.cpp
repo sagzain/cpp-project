@@ -89,22 +89,39 @@ void AnnounceWinner(Player player)
 
 Weapon SelectWeapon(DataBase db)
 {
-    Weapon weapon = Weapon("", 1);
+    Weapon* weapons = db.GetWeapons();
+    int size = 5;//sizeof(weapons) / sizeof(weapons[0]);
+
+    for (int i = 0; i < size; i++)
+    {
+        cout << i << " - ";
+        cout << weapons[i].GetName() << endl;
+    }
+
+    int selected;
+    cout << "Selection:";
+    cin >> selected;
+    Weapon weapon = weapons[selected];
+
     return weapon;
 }
 
 Player* GeneratePlayers(DataBase db, int nPlayers)
 {
-    Player* players;
+    Player* players = new Player[nPlayers];
+
     for(int i = 0; i < nPlayers; i++)
     {
         string name = db.GetRandomName();
-        cout << "Select a weapon for " << name << "." << endl;
+
+        cout << endl;
+        cout << "Select a weapon for " << name << ":" << endl;
+        
         Weapon weapon = SelectWeapon(db);
 
-        players = new Player(name, weapon, 10, 1, 1);
+        players[i] = Player(name, weapon, 10, 1, 1);
     }
-
+    
     return players;
 }
 

@@ -2,6 +2,11 @@
 
 int Player::totalPlayers = 0;
 
+Player::Player() 
+{
+	totalPlayers++;
+}
+
 Player::Player(std::string name, Weapon pWeapon, int health, int damage, int speed)
 	: Combatant(name, health, damage + pWeapon.GetDamage(), speed), weapon(pWeapon)
 {

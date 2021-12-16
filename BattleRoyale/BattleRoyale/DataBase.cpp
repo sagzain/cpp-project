@@ -46,9 +46,10 @@ Animal DataBase::animals[] =
 };
 Weapon DataBase::weapons[] =
 {
-    Weapon("Knife", 2),
     Weapon("Hammer", 1),
+    Weapon("Knife", 2),
     Weapon("Katana", 3),
+    Weapon("Crossbow", 4),
     Weapon("Pistol", 5)
 };
 

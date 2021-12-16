@@ -8,6 +8,7 @@ private:
 	int damage;
 
 public:
+	Weapon();
 	Weapon(std::string, int);
 	~Weapon();
 

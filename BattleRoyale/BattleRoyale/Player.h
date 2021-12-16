@@ -10,6 +10,7 @@ private:
 
 	Weapon weapon;
 public:
+	Player();
 	Player(std::string, Weapon, int, int , int);
 	~Player();
 

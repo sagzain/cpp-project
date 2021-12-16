@@ -1,5 +1,7 @@
 #include "Weapon.h"
 
+Weapon::Weapon() {}
+
 Weapon::Weapon(std::string name, int damage) 
 	: Item(name)
 {
