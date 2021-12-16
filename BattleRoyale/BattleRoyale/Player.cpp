@@ -18,7 +18,6 @@ void Player::Attack(Combatant &other)
 	std::cout << name << " attacks " << other.GetName();
 	std::cout << " using " << weapon.GetName() << "." << std::endl;
 
-	/*int totalDamage = this->GetDamage() + weapon.GetDamage();*/
 	other.TakeDamage(damage);
 }
 

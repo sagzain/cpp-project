@@ -37,7 +37,7 @@ void Combatant::Attack(Combatant &other)
 	std::cout << std::endl;
 	std::cout << name << " attacks " << other.GetName() << "." << std::endl;
 
-	other.TakeDamage(other.GetDamage());
+	other.TakeDamage(damage);
 }
 
 void Combatant::TakeDamage(int damage)

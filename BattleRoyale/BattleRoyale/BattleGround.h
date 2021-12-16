@@ -15,7 +15,18 @@ public:
 
 	// Other methods
 	void PrintPlayers(); // Shows which players are still alive
-	void NextTurn(); // Makes players play next turn based on their speed
+	
+	// Randomized methods
+	void NextEvent(); // Generate a random event 
+	int GetPlayerOponent(int); // Get player to fight with
+	Combatant GenerateAnimalOponent(); // Generate animal to figth with
+
+	// Events 
+	void SafeTurn(int); // Event for safe turn
+	
+	
+
+	// Start Battle vs Player/Animal
 	void StartBattle(Combatant&, Combatant&);
 	
 	// Returns the winner of the Battle Royale

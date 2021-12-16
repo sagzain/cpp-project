@@ -88,10 +88,12 @@ void PlayGame()
 
     BattleGround bg = BattleGround(players);
     bg.PrintPlayers();
-    bg.StartBattle(player1, player2);
-    
+    //bg.StartBattle(player1, player2);
     system("pause");
-       
+    
+    bg.NextEvent();
+    system("pause");
+
     bg.PrintPlayers();
 }
 
