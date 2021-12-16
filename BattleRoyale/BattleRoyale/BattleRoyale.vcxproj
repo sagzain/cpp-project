@@ -143,6 +143,7 @@
     <ClCompile Include="Animal.cpp" />
     <ClCompile Include="BattleGround.cpp" />
     <ClCompile Include="Combatant.cpp" />
+    <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Animal.h" />
     <ClInclude Include="BattleGround.h" />
     <ClInclude Include="Combatant.h" />
+    <ClInclude Include="DataBase.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="IDamageable.h" />
     <ClInclude Include="Player.h" />

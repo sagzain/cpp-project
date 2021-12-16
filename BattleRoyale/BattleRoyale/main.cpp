@@ -16,6 +16,7 @@
 #include <thread>
 
 #include "BattleGround.h"
+#include "DataBase.h"
 #include "Player.h"
 #include "Weapon.h"
 
@@ -88,6 +89,8 @@ void AnnounceWinner(Player player)
 
 void PlayGame()
 {
+    DataBase db;
+
     Weapon weapon1 = Weapon("Knife", 2);
     Weapon weapon2 = Weapon("Hammer", 1);
     Weapon weapon3 = Weapon("Katana", 3);
