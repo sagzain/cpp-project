@@ -1,20 +1,16 @@
 #pragma once
 #include <iostream>
+#include "Item.h"
 
-using namespace std;
-
-class Weapon
+class Weapon : public Item
 {
 private:
-	string name;
 	int damage;
 
 public:
-	Weapon();
-	Weapon(string, int);
-	string GetName();
-	void SetName(string);
+	Weapon(std::string, int);
+	~Weapon();
+
 	int GetDamage();
-	void SetDamage(int);
 };
 

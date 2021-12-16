@@ -15,7 +15,7 @@
 #include <chrono>
 #include <thread>
 
-#include "Map.h"
+#include "BattleGround.h"
 #include "Player.h"
 #include "Weapon.h"
 
@@ -26,53 +26,9 @@ using namespace chrono;
 void WelcomeMessage()
 {
     cout << "Welcome to C++ Battle Royale" << endl;
+    sleep_for(milliseconds(750));
+    cout << "Are you prepared to witness a Battle?" << endl << endl;
     sleep_for(seconds(1));
-    cout << "Are you prepared to witness a Battle?" << endl;
-    sleep_for(seconds(2));
-}
-
-Size MapSelector()
-{
-    Size size;
-    bool finished;
-
-    do
-    {
-        finished = true;
-
-        cout << endl;
-        cout << "Select map dimensions:" << endl;
-        sleep_for(milliseconds(60));
-        cout << "1 - Small (3x3)" << endl;
-        sleep_for(milliseconds(40));
-        cout << "2 - Normal (6x6)" << endl;
-        sleep_for(milliseconds(40));
-        cout << "3 - Large (10x10)" << endl;
-        sleep_for(milliseconds(40));
-
-        int selection;
-        cout << endl << "Selection: ";
-        cin >> selection;
-
-        switch (selection)
-        {
-        case 1:
-            size = { 3,3 };
-            break;
-        case 2:
-            size = { 6,6 };
-            break;
-        case 3:
-            size = { 10, 10 };
-            break;
-        default:
-            cout << "Selection error. Try again." << endl;
-            finished = false;
-            break;
-        }
-    } while (!finished);
-
-    return size;
 }
 
 bool PlayAgain()
@@ -82,7 +38,7 @@ bool PlayAgain()
     {
         finished = true;
 
-        cout << "Do you want to play another game? (y/n):" << endl;
+        cout << endl << "Do you want to play another game? (y/n):" << endl;
         cout << "y/n: ";
 
         char response;
@@ -96,7 +52,7 @@ bool PlayAgain()
             break;
         case 'n':
         case 'N':
-            return false;
+            finished = true;
             break;
 
         default:
@@ -104,44 +60,45 @@ bool PlayAgain()
             finished = false;
         }
     } while (!finished);
+
+    return false;
+}
+
+Player* SelectPlayerNumber()
+{
+    int nPlayers;
+
+    cout << "Introduce the number of players that are going to participate." << endl;
+    cout << "Nº: ";
+    
+    cin >> nPlayers;
+
+    return nullptr;
 }
 
 void PlayGame()
 {
-    Size size = MapSelector();
+    Weapon weapon = Weapon("Navaja", 1);
 
-    Map map = Map(size);
+    Player player1 = Player("Samuel", weapon, 5, 1, 1);
+    Player player2 = Player("Paula", weapon, 5, 1, 2);
+    Player player3 = Player("Random", weapon, 5, 1, 1);
 
-    Weapon weapon;
-    Player player1 = Player("Samuel", weapon);
-    Player player2 = Player("Adrian", weapon);
-    Player player3 = Player("Miguel", weapon);
-    Player player4 = Player("AnuelB", weapon);
-    Player player5 = Player("Manuel", weapon);
+    Player players [] = { player1, player2 , player3};
 
-    map.SetPlayerAtPosition(player1, map.GeneratePosition());
-    map.SetPlayerAtPosition(player2, map.GeneratePosition());
-    map.SetPlayerAtPosition(player3, map.GeneratePosition());
-    map.SetPlayerAtPosition(player4, map.GeneratePosition());
-    map.SetPlayerAtPosition(player5, map.GeneratePosition());
-
-    map.PrintBattleground();
-}
-
-void InitMainMenu()
-{
-    bool repeat;
-
-    WelcomeMessage();
+    BattleGround bg = BattleGround(players);
+    bg.PrintPlayers();
+    bg.StartBattle(player1, player2);
     
-    do
-    {
-        PlayGame();
-        repeat = PlayAgain();
-    } while (repeat);
+    system("pause");
+       
+    //bg.PrintPlayers();
+
+    cout << player1.GetTotalPlayers() << endl;
 }
 
 int main()
 {
-    InitMainMenu();
+    WelcomeMessage();
+    PlayGame();
 }

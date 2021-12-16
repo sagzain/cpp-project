@@ -1,29 +1,22 @@
 #pragma once
 #include <iostream>
-#include "IDamageable.h"
+#include "Combatant.h"
 #include "Weapon.h"
-#include "Position.h"
 
-using namespace std;
-
-class Player : public IDamageable
+class Player : public Combatant
 {
 private:
-	string name;
-	int health;
-	int baseDamage;
+	static int totalPlayers;
 
 	Weapon weapon;
-
-	Position position;
 public:
-	Player();
-	Player(string, Weapon);
+	Player(std::string, Weapon, int, int , int);
 	~Player();
-	string GetName();
-	int CalculateDamage();
+
+	void Attack(Combatant&);
 	bool IsDead();
-	virtual void TakeDamage(int);
-	void SetPosition(Position);
+
+	int GetTotalPlayers();
+	void DecreaseTotalPlayers();
 };
 

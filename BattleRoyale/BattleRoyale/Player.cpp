@@ -1,40 +1,30 @@
 #include "Player.h"
 
-Player::Player() {}
+int Player::totalPlayers = 0;
 
-Player::Player(string playerName, Weapon playerWeapon)
+Player::Player(std::string name, Weapon pWeapon, int health, int damage, int speed)
+	: Combatant(name, health, damage, speed), weapon(pWeapon)
 {
-	name = playerName;
-	health = 10;
-	baseDamage = 1;
-	weapon = playerWeapon;
+	totalPlayers ++;
 }
 
-Player::~Player() {}
-
-string Player::GetName()
+Player::~Player()
 {
-	return name;
+	totalPlayers--;
 }
 
-int Player::CalculateDamage()
+void Player::Attack(Combatant &other)
 {
-	return weapon.GetDamage() + baseDamage;
+	int totalDamage = this->GetDamage() + weapon.GetDamage();
+	other.TakeDamage(totalDamage);
 }
 
-bool Player::IsDead()
+int Player::GetTotalPlayers()
 {
-	return health <= 0;
+	return totalPlayers;
 }
 
-void Player::TakeDamage(int damage)
+void Player::DecreaseTotalPlayers()
 {
-	health -= damage;
-	cout << endl << name << "takes " << damage << "damage." << endl;
-	cout << health << " left." << endl;
-}
-
-void Player::SetPosition(Position position)
-{
-	this->position = position;
+	totalPlayers--;
 }

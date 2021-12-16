@@ -1,17 +1,12 @@
 #include "Weapon.h"
 
-Weapon::Weapon() {}
-
-Weapon::Weapon(string weaponName, int weaponDamage)
+Weapon::Weapon(std::string name, int damage) 
+	: Item(name)
 {
-	name = weaponName;
-	damage = weaponDamage;
+	this->damage = damage;
 }
 
-string Weapon::GetName()
-{
-	return name;
-}
+Weapon::~Weapon() {}
 
 int Weapon::GetDamage()
 {

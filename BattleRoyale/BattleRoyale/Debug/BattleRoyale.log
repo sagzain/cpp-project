@@ -1,3 +1,4 @@
-﻿  Map.cpp
-D:\GitHub\cpp-project\BattleRoyale\BattleRoyale\Map.cpp(47,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+﻿  Combatant.cpp
+  main.cpp
+  Generando código...
   BattleRoyale.vcxproj -> D:\GitHub\cpp-project\BattleRoyale\Debug\BattleRoyale.exe
