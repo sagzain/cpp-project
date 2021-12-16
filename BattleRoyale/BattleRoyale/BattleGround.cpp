@@ -4,12 +4,13 @@
 
 #define TOTAL_PROB 100 // Total probability for the rand function
 #define PROB_BATTLE_PLAYER 100 // Accumulative prob 50 to 100 (50%)
-#define PROB_BATTLE_ANIMAL 50 // 25 to 50 (25%)
+#define PROB_BATTLE_ANIMAL 55 // 25 to 50 (25%)
 #define PROB_SAFE_TURN 25 // 0 to 25 (25%)
 
-BattleGround::BattleGround(Player* players)
+BattleGround::BattleGround(Player* players, Animal* animals)
 {
 	this->players = players;
+	this->animals = animals;
 }
 
 void BattleGround::PrintPlayers()
@@ -50,16 +51,22 @@ void BattleGround::NextEvent()
 	}
 	else if (prob > PROB_SAFE_TURN && prob <= PROB_BATTLE_ANIMAL)
 	{
+		std::cout << std::endl;
 		std::cout << players[turn].GetName() << " has encountered an animal.";
 		std::cout << std::endl;
 		
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
 		Combatant animal = GenerateAnimalOponent(); // Generate animal
 		StartBattle(players[turn], animal); // Battle with the animal
 	}
 	else if (prob > PROB_BATTLE_ANIMAL && prob <= PROB_BATTLE_PLAYER)
 	{
+		std::cout << std::endl;
 		std::cout << players[turn].GetName() << " has encountered other opponent.";
 		std::cout << std::endl;
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
 		int oponent = GetPlayerOponent(turn); // Get another player
 		StartBattle(players[turn], players[oponent]); // Fight p1 vs p2
@@ -90,10 +97,13 @@ int BattleGround::GetPlayerOponent(int playerIndex)
 	return oponentIndex;
 }
 
+// Generates a random animal combatant to fight with
 Combatant BattleGround::GenerateAnimalOponent()
 {
-	// Generates a random animal combatant to fight with
-	Combatant oponent = Combatant("Oso", 10, 1, 1);
+	srand(time(NULL));
+	int random = rand() % animals[0].GetTotalAnimals();
+	
+	Combatant oponent = animals[random];
 	return oponent;
 }
 

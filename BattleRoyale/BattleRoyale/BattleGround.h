@@ -1,17 +1,19 @@
 #pragma once
 #include "Combatant.h"
 #include "Player.h"
+#include "Animal.h"
 
 class BattleGround
 {
 private:
 	Player* players; // Reference to the players inside the game
-	
+	Animal* animals; // List of animals in the battleground
+
 	// Methods
 	void RemovePlayer(Combatant&); // Remove player from pointer when dead
 
 public:
-	BattleGround(Player*); // Constructor
+	BattleGround(Player*, Animal*); // Constructor
 
 	// Other methods
 	void PrintPlayers(); // Shows which players are still alive

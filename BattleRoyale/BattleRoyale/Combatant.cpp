@@ -1,7 +1,7 @@
 #include "Combatant.h"
 
 #define TOTAL_PROB 100 // Total probability for the rand function
-#define PROB_DODGE 25 // Probability for a Combatant to dodge an attack
+#define PROB_DODGE 15 // Probability for a Combatant to dodge an attack
 
 Combatant::Combatant() 
 {
@@ -65,5 +65,12 @@ void Combatant::TakeDamage(int damage)
 
 bool Combatant::IsDead()
 {
-	return health <= 0;
+	if(health <= 0)
+	{
+		std::cout << std::endl;
+		std::cout << name << " has died." << std::endl;
+		
+		return true;
+	}
+	return false;
 }
