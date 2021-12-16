@@ -1,5 +1,10 @@
 #include "DataBase.h"
 
+DataBase::DataBase()
+{
+    srand(time(NULL));
+}
+
 std::string DataBase::adjectives[] =
 {
     "Incredible",
@@ -49,7 +54,6 @@ Weapon DataBase::weapons[] =
 
 std::string DataBase::GetRandomName()
 {
-    srand(time(NULL));
     int randomAdjective = rand() % 10;
     int randomName = rand() % 10;
 
@@ -61,9 +65,18 @@ std::string DataBase::GetRandomName()
 
 Weapon DataBase::GetRandomWeapon()
 {
-    srand(time(NULL));
     int size = sizeof(weapons) / sizeof(weapons[0]);
     int random = rand() % size;
 
     return weapons[random];
+}
+
+Weapon* DataBase::GetWeapons()
+{
+    return weapons;
+}
+
+Animal* DataBase::GetAnimals()
+{
+    return animals;
 }

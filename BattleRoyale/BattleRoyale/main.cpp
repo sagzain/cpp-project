@@ -65,7 +65,7 @@ bool PlayAgain()
     return false;
 }
 
-Player* SelectPlayerNumber()
+int SelectPlayerNumber()
 {
     int nPlayers;
 
@@ -74,7 +74,7 @@ Player* SelectPlayerNumber()
     
     cin >> nPlayers;
 
-    return nullptr;
+    return nPlayers;
 }
 
 void AnnounceWinner(Player player)
@@ -87,33 +87,29 @@ void AnnounceWinner(Player player)
     system("pause");
 }
 
-void PlayGame()
+Weapon SelectWeapon(DataBase db)
 {
-    DataBase db;
+    Weapon weapon = Weapon("", 1);
+    return weapon;
+}
 
-    Weapon weapon1 = Weapon("Knife", 2);
-    Weapon weapon2 = Weapon("Hammer", 1);
-    Weapon weapon3 = Weapon("Katana", 3);
-    Weapon weapon4 = Weapon("Pistol", 5);
+Player* GeneratePlayers(DataBase db, int nPlayers)
+{
+    Player* players;
+    for(int i = 0; i < nPlayers; i++)
+    {
+        string name = db.GetRandomName();
+        cout << "Select a weapon for " << name << "." << endl;
+        Weapon weapon = SelectWeapon(db);
 
-    Player player1 = Player("Wanda", weapon1, 8, 1, 3);
-    Player player2 = Player("Steve", weapon2, 10, 1, 3);
-    Player player3 = Player("Mike", weapon3, 5, 1, 3);
-    Player player4 = Player("Morgana", weapon4, 4, 1, 2);
-    Player player5 = Player("John Doe", weapon1, 8, 1, 3);
-    Player player6 = Player("Doe John", weapon2, 10, 1, 3);
-    Player player7 = Player("Cindy", weapon3, 6, 1, 2);
+        players = new Player(name, weapon, 10, 1, 1);
+    }
 
-    Player players [] = { player1, player2 , player3, player4, player5, player6, player7};
+    return players;
+}
 
-    Animal animal1 = Animal("Hound", 4, 1, 3);
-    Animal animal2 = Animal("Boar", 5, 2, 1);
-    Animal animal3 = Animal("Snake", 3, 1, 5);
-    Animal animal4 = Animal("Wolf", 3, 3, 5);
-    Animal animal5 = Animal("Bear", 7, 4, 4);
- 
-    Animal animals[] = { animal1, animal2, animal3, animal4, animal5 };
-
+void PlayGame(Player* players, Animal* animals)
+{
     BattleGround bg = BattleGround(players, animals);
     
     while (!bg.IsOneLeft())
@@ -132,5 +128,9 @@ void PlayGame()
 int main()
 {
     WelcomeMessage();
-    PlayGame();
+    int n = SelectPlayerNumber();
+    
+    DataBase db;
+    Player* players = GeneratePlayers(db, n);
+    PlayGame(players, db.GetAnimals());
 }

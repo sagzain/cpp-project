@@ -13,8 +13,10 @@ private:
 	static Animal animals[];
 	static Weapon weapons[];
 public:
+	DataBase();
 	std::string GetRandomName();
 	Weapon GetRandomWeapon();
-
+	Weapon* GetWeapons();
+	Animal* GetAnimals();
 };
 

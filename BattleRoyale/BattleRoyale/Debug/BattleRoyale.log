@@ -1,7 +1,2 @@
-﻿  DataBase.cpp
-C:\Users\samu_\Documents\GitHub\cpp-project\BattleRoyale\BattleRoyale\DataBase.cpp(52,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\samu_\Documents\GitHub\cpp-project\BattleRoyale\BattleRoyale\DataBase.cpp(64,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  main.cpp
-C:\Users\samu_\Documents\GitHub\cpp-project\BattleRoyale\BattleRoyale\main.cpp(92,14): warning C4101: 'db': variable local sin referencia
-  Generando código...
+﻿  main.cpp
   BattleRoyale.vcxproj -> C:\Users\samu_\Documents\GitHub\cpp-project\BattleRoyale\Debug\BattleRoyale.exe
