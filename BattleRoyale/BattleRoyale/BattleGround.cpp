@@ -3,9 +3,9 @@
 #include <thread>
 
 #define TOTAL_PROB 100 // Total probability for the rand function
-#define PROB_BATTLE_PLAYER 100 // Accumulative prob 60 to 100 (40%)
-#define PROB_BATTLE_ANIMAL 60 // 20 to 60 (40%)
-#define PROB_SAFE_TURN 20 // 0 to 20 (20%)
+#define PROB_BATTLE_PLAYER 100 // Accumulative prob 50 to 100 (50%)
+#define PROB_BATTLE_ANIMAL 50 // 25 to 50 (25%)
+#define PROB_SAFE_TURN 25 // 0 to 25 (25%)
 
 BattleGround::BattleGround(Player* players)
 {
@@ -44,18 +44,23 @@ void BattleGround::NextEvent()
 	// Generate a probability to check which event is going to be played
 	int prob = rand() % TOTAL_PROB + 1;
 
-
 	if(prob <= PROB_SAFE_TURN)
 	{
 		SafeTurn(turn); // Safe turn is played, nothing happens
 	}
 	else if (prob > PROB_SAFE_TURN && prob <= PROB_BATTLE_ANIMAL)
 	{
+		std::cout << players[turn].GetName() << " has encountered an animal.";
+		std::cout << std::endl;
+		
 		Combatant animal = GenerateAnimalOponent(); // Generate animal
 		StartBattle(players[turn], animal); // Battle with the animal
 	}
 	else if (prob > PROB_BATTLE_ANIMAL && prob <= PROB_BATTLE_PLAYER)
 	{
+		std::cout << players[turn].GetName() << " has encountered other opponent.";
+		std::cout << std::endl;
+
 		int oponent = GetPlayerOponent(turn); // Get another player
 		StartBattle(players[turn], players[oponent]); // Fight p1 vs p2
 	}
@@ -121,10 +126,7 @@ void BattleGround::StartBattle(Combatant& fighter1, Combatant& fighter2)
 	{
 		int target = (turn + 1) % 2; // Target is the other position in array
 		
-		// Information displayed for the user 
-		std::cout << "Attacks: " << combatants[turn].GetName() << std::endl;
-		std::cout << "Target: " << combatants[target].GetName() << std::endl;
-
+		
 		// Combatant deals damage to target on its turn
 		combatants[turn].Attack(combatants[target]);
 
@@ -180,4 +182,14 @@ void BattleGround::RemovePlayer(Combatant& player)
 			players[i] = players[i + 1];
 		}
 	}
+}
+
+Player BattleGround::FinalWinner()
+{
+	return players[0];
+}
+
+bool BattleGround::IsOneLeft()
+{
+	return players[0].GetTotalPlayers() == 1;
 }

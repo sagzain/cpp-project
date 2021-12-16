@@ -1,2 +1,3 @@
 ﻿  Combatant.cpp
+D:\GitHub\cpp-project\BattleRoyale\BattleRoyale\Combatant.cpp(48,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   BattleRoyale.vcxproj -> D:\GitHub\cpp-project\BattleRoyale\Debug\BattleRoyale.exe

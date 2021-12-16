@@ -27,7 +27,7 @@ void WelcomeMessage()
 {
     cout << "Welcome to C++ Battle Royale" << endl;
     sleep_for(milliseconds(750));
-    cout << "Are you prepared to witness a Battle?" << endl << endl;
+    cout << "Are you prepared to witness a Battle?" << endl;
     sleep_for(seconds(1));
 }
 
@@ -76,6 +76,16 @@ Player* SelectPlayerNumber()
     return nullptr;
 }
 
+void AnnounceWinner(Player player)
+{
+    cout << endl;
+    cout << "-------------------------------------------" << endl;
+    cout << "Final winner is " << player.GetName() << "." << endl;
+    cout << "-------------------------------------------" << endl;
+    
+    system("pause");
+}
+
 void PlayGame()
 {
     Weapon weapon = Weapon("Navaja", 1);
@@ -87,14 +97,18 @@ void PlayGame()
     Player players [] = { player1, player2 , player3};
 
     BattleGround bg = BattleGround(players);
-    bg.PrintPlayers();
-    //bg.StartBattle(player1, player2);
-    system("pause");
     
-    bg.NextEvent();
-    system("pause");
+    while (!bg.IsOneLeft())
+    {
+        bg.PrintPlayers();
+        system("pause");
 
-    bg.PrintPlayers();
+        bg.NextEvent();
+        system("pause");
+    }
+
+    Player winner = bg.FinalWinner();
+    AnnounceWinner(winner);
 }
 
 int main()

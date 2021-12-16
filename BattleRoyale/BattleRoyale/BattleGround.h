@@ -30,6 +30,9 @@ public:
 	void StartBattle(Combatant&, Combatant&);
 	
 	// Returns the winner of the Battle Royale
-	//Player Winner();
+	Player FinalWinner();
+
+	//checks if the game has only one player (the last one)
+	bool IsOneLeft();
 };
 

@@ -20,8 +20,8 @@ public:
 	int GetSpeed();
 
 	//Other methods
-	void TakeDamage(int); //Method from interface IDamageable
-	virtual void Attack(Combatant&);
-	bool IsDead();
+	void TakeDamage(int); // Method from interface IDamageable
+	virtual void Attack(Combatant&); // Method used to attack other Combatant
+	bool IsDead(); // Check if Combatant isDead
 };
 

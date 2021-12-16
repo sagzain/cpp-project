@@ -1,5 +1,8 @@
 #include "Combatant.h"
 
+#define TOTAL_PROB 100 // Total probability for the rand function
+#define PROB_DODGE 25 // Probability for a Combatant to dodge an attack
+
 Combatant::Combatant() 
 {
 	health = 1;
@@ -42,12 +45,22 @@ void Combatant::Attack(Combatant &other)
 
 void Combatant::TakeDamage(int damage)
 {
-	health -= damage;
-	
-	health = health < 0 ? 0 : health;
+	srand(time(NULL));
+	int dodge = rand() % TOTAL_PROB + 1;
 
-	std::cout << name << " takes " << damage << " damage." << std::endl;
-	std::cout << health << " left." << std::endl;
+	if (dodge <= PROB_DODGE)
+	{
+		std::cout << name << " dodges the attack." << std::endl;
+	}
+	else
+	{
+		health -= damage;
+
+		health = health < 0 ? 0 : health;
+
+		std::cout << name << " takes " << damage << " damage." << std::endl;
+		std::cout << health << " left." << std::endl;
+	}
 }
 
 bool Combatant::IsDead()
