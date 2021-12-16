@@ -9,6 +9,9 @@
 
 BattleGround::BattleGround(Player* players, Animal* animals)
 {
+	// Random seed initialization
+	srand(time(NULL));
+
 	this->players = players;
 	this->animals = animals;
 }
@@ -36,9 +39,6 @@ void BattleGround::PrintPlayers()
 
 void BattleGround::NextEvent()
 {
-	// Random seed initialization
-	srand(time(NULL));
-
 	// Get a random player to play an event 
 	int turn = rand() % players[0].GetTotalPlayers();
 
@@ -84,9 +84,6 @@ void BattleGround::SafeTurn(int playerIndex)
 
 int BattleGround::GetPlayerOponent(int playerIndex)
 {
-	// Random seed initialization
-	srand(time(NULL));
-
 	int oponentIndex = rand() % players[0].GetTotalPlayers();
 	
 	while (oponentIndex == playerIndex)
@@ -100,7 +97,6 @@ int BattleGround::GetPlayerOponent(int playerIndex)
 // Generates a random animal combatant to fight with
 Combatant BattleGround::GenerateAnimalOponent()
 {
-	srand(time(NULL));
 	int random = rand() % animals[0].GetTotalAnimals();
 	
 	Combatant oponent = animals[random];

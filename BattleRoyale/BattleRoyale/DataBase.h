@@ -9,7 +9,7 @@ private:
 	static std::string adjectives[];
 	static std::string names[];
 
-	static Player* players;
+
 	static Animal animals[];
 	static Weapon weapons[];
 public:

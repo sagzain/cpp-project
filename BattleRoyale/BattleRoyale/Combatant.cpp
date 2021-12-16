@@ -58,8 +58,8 @@ void Combatant::TakeDamage(int damage)
 
 		health = health < 0 ? 0 : health;
 
-		std::cout << name << " takes " << damage << " damage." << std::endl;
-		std::cout << health << " left." << std::endl;
+		std::cout << name << " takes " << damage << " damage.";
+		std::cout << "(" << health << " health left)." << std::endl;
 	}
 }
 

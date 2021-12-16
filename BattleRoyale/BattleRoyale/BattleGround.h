@@ -25,8 +25,6 @@ public:
 
 	// Events 
 	void SafeTurn(int); // Event for safe turn
-	
-	
 
 	// Start Battle vs Player/Animal
 	void StartBattle(Combatant&, Combatant&);

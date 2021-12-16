@@ -14,8 +14,7 @@ public:
 	Player(std::string, Weapon, int, int , int);
 	~Player();
 
-	void Attack(Combatant&);
-	bool IsDead();
+	virtual void Attack(Combatant&);
 
 	int GetTotalPlayers();
 	void DecreaseTotalPlayers();

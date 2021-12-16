@@ -28,49 +28,19 @@ void WelcomeMessage()
 {
     cout << "Welcome to C++ Battle Royale" << endl;
     sleep_for(milliseconds(750));
-    cout << "Are you prepared to witness a Battle?" << endl;
+    cout << "Are you prepared to witness a Battle?\n" << endl;
     sleep_for(seconds(1));
-}
 
-bool PlayAgain()
-{
-    bool finished;
-    do
-    {
-        finished = true;
-
-        cout << endl << "Do you want to play another game? (y/n):" << endl;
-        cout << "y/n: ";
-
-        char response;
-        cin >> response;
-
-        switch (response)
-        {
-        case 'y':
-        case 'Y':
-            return true;
-            break;
-        case 'n':
-        case 'N':
-            finished = true;
-            break;
-
-        default:
-            cout << "Selection error. Try again." << endl;
-            finished = false;
-        }
-    } while (!finished);
-
-    return false;
+    system("pause");
 }
 
 int SelectPlayerNumber()
 {
     int nPlayers;
 
+    cout << endl;
     cout << "Introduce the number of players that are going to participate." << endl;
-    cout << "Nº: ";
+    cout << "Num: ";
     
     cin >> nPlayers;
 
@@ -81,7 +51,7 @@ void AnnounceWinner(Player player)
 {
     cout << endl;
     cout << "-------------------------------------------" << endl;
-    cout << "\tFinal winner is " << player.GetName() << "." << endl;
+    cout << "\bFinal winner is " << player.GetName() << "." << endl;
     cout << "-------------------------------------------" << endl;
     
     system("pause");
@@ -90,7 +60,7 @@ void AnnounceWinner(Player player)
 Weapon SelectWeapon(DataBase db)
 {
     Weapon* weapons = db.GetWeapons();
-    int size = 5;//sizeof(weapons) / sizeof(weapons[0]);
+    int size = 5; //sizeof(weapons) / sizeof(weapons[0]);
 
     for (int i = 0; i < size; i++)
     {
@@ -132,9 +102,11 @@ void PlayGame(Player* players, Animal* animals)
     while (!bg.IsOneLeft())
     {
         bg.PrintPlayers();
+        cout << endl;
         system("pause");
 
         bg.NextEvent();
+        cout << endl;
         system("pause");
     }
 

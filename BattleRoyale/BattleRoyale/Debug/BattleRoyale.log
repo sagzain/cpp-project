@@ -1,4 +1,7 @@
-﻿  Player.cpp
+﻿  BattleGround.cpp
+D:\GitHub\cpp-project\BattleRoyale\BattleRoyale\BattleGround.cpp(13,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  DataBase.cpp
+D:\GitHub\cpp-project\BattleRoyale\BattleRoyale\DataBase.cpp(5,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   main.cpp
   Generando código...
-  BattleRoyale.vcxproj -> C:\Users\samu_\Documents\GitHub\cpp-project\BattleRoyale\Debug\BattleRoyale.exe
+  BattleRoyale.vcxproj -> D:\GitHub\cpp-project\BattleRoyale\Debug\BattleRoyale.exe
