@@ -81,7 +81,7 @@ void PlayGame()
     Weapon weapon = Weapon("Navaja", 1);
 
     Player player1 = Player("Samuel", weapon, 5, 1, 1);
-    Player player2 = Player("Paula", weapon, 5, 1, 2);
+    Player player2 = Player("Paula", weapon, 5, 1, 1);
     Player player3 = Player("Random", weapon, 5, 1, 1);
 
     Player players [] = { player1, player2 , player3};
@@ -92,9 +92,7 @@ void PlayGame()
     
     system("pause");
        
-    //bg.PrintPlayers();
-
-    cout << player1.GetTotalPlayers() << endl;
+    bg.PrintPlayers();
 }
 
 int main()

@@ -3,7 +3,7 @@
 int Player::totalPlayers = 0;
 
 Player::Player(std::string name, Weapon pWeapon, int health, int damage, int speed)
-	: Combatant(name, health, damage, speed), weapon(pWeapon)
+	: Combatant(name, health, damage + pWeapon.GetDamage(), speed), weapon(pWeapon)
 {
 	totalPlayers ++;
 }
@@ -15,8 +15,11 @@ Player::~Player()
 
 void Player::Attack(Combatant &other)
 {
-	int totalDamage = this->GetDamage() + weapon.GetDamage();
-	other.TakeDamage(totalDamage);
+	std::cout << name << " attacks " << other.GetName();
+	std::cout << " using " << weapon.GetName() << "." << std::endl;
+
+	/*int totalDamage = this->GetDamage() + weapon.GetDamage();*/
+	other.TakeDamage(damage);
 }
 
 int Player::GetTotalPlayers()

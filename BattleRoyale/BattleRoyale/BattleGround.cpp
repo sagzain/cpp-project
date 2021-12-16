@@ -72,17 +72,30 @@ void BattleGround::StartBattle(Combatant& fighter1, Combatant& fighter2)
 // This method looks for the player in the players array
 // removing it and changing the size of the array
 // (Array's size will be the same but we won't be able to access last spot)
-void BattleGround::RemovePlayer(Combatant &player)
+void BattleGround::RemovePlayer(Combatant& player)
 {
 	int length = players[0].GetTotalPlayers();
 
 	int index; // Ocurrency of the desired player in the array
-	for (int i = 0; i < length; i++)
+
+	for (index = 0; index < length; index++)
 	{
-		if (players[i].GetName() == player.GetName())
+		if (players[index].GetName() == player.GetName())
 		{
-			//delete &players[i];
-			delete &player;
+			break;
+		}
+	}
+
+	// Check if we have encountered the element (index will be greater if not)
+	if (index < length)
+	{
+		players[0].DecreaseTotalPlayers();
+		length = players[0].GetTotalPlayers();
+ 
+		// Move every element to the left (last position will be unnaccesible)
+		for (int i = index; i < length; i++)
+		{
+			players[i] = players[i + 1];
 		}
 	}
 }

@@ -34,13 +34,19 @@ int Combatant::GetSpeed()
 
 void Combatant::Attack(Combatant &other)
 {
+	std::cout << std::endl;
+	std::cout << name << " attacks " << other.GetName() << "." << std::endl;
+
 	other.TakeDamage(other.GetDamage());
 }
 
 void Combatant::TakeDamage(int damage)
 {
-	this->health -= damage;
-	std::cout << std::endl << name << " takes " << damage << " damage." << std::endl;
+	health -= damage;
+	
+	health = health < 0 ? 0 : health;
+
+	std::cout << name << " takes " << damage << " damage." << std::endl;
 	std::cout << health << " left." << std::endl;
 }
 
